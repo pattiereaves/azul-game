@@ -35,7 +35,7 @@ export default class Index extends Component {
     return (
       <ThemeProvider>
         <div>
-          {/* ! playerCount && */ true && (
+          {! playerCount && (
             <div>
               <p>How many players are there?</p>
               <Select
