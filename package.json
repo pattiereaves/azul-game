@@ -1,0 +1,34 @@
+{
+  "name": "azul-game",
+  "version": "1.0.0",
+  "description": "A digital version of the excellent board game",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pattiereaves/azul-game.git"
+  },
+  "author": "pattie@pzunk.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pattiereaves/azul-game/issues"
+  },
+  "homepage": "https://github.com/pattiereaves/azul-game#readme",
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1"
+  }
+}
