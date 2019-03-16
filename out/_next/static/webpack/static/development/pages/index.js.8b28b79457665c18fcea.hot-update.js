@@ -21,7 +21,7 @@ function Home() {
       lineNumber: 2
     },
     __self: this
-  }, "Welcome... to next.js!");
+  }, "This is the Pattie and Tony show.");
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
