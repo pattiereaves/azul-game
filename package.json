@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "predeploy": "npm run export",
+    "predeploy": "npm build; npm run export",
     "deploy": "gh-pages -d out"
   },
   "repository": {
