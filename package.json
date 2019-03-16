@@ -4,8 +4,8 @@
   "description": "A digital version of the excellent board game",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "NODE_ENV=development next",
+    "build": "NODE_ENV=production next build",
     "start": "next start",
     "export": "next export",
     "predeploy": "npm build; npm run export",
