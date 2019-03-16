@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import localStorage from 'local-storage';
 import { ThemeProvider } from 'mineral-ui/themes';
 import Select from 'mineral-ui/Select';
 import Player from '../components/Player';
@@ -25,24 +26,44 @@ export default class Index extends Component {
   ];
 
   handleChange = ({ value }) => {
-    this.setState({ playerCount: Number(value) });
+    const playerCount = Number(value);
+    this.setState({ playerCount: playerCount });
+    localStorage('playerCount', playerCount );
+  };
+
+  hydrateStateWithLocalStorage = () => {
+    const { state } = this;
+
+    Object.keys(state).forEach((key) => {
+      let value = localStorage.get(key);
+
+      if (! value) {
+        return;
+      }
+
+      this.setState({ [key]: JSON.parse(value) });
+    })
+  };
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
   }
 
-  render = () => {
+  render() {
     const { possiblePlayers, handleChange } = this;
     const { playerCount } = this.state;
 
     return (
       <ThemeProvider>
         <div>
-          {! playerCount && (
+          {!playerCount && (
             <div>
               <p>How many players are there?</p>
               <Select
                 data={this.possiblePlayers}
-                defaultSelectedItem={possiblePlayers[0]}
-                required
                 onChange={handleChange}
+                placeholder="Choose a number"
+                required
               />
             </div>
           )}
