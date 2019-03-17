@@ -2,14 +2,18 @@ import { Component } from 'react';
 import localStorage from 'local-storage';
 import { ThemeProvider } from 'mineral-ui/themes';
 import Select from 'mineral-ui/Select';
+import Button from 'mineral-ui/Button';
 import Player from '../components/Player';
-import tilebag from '../services/tilebag';
+import FactoryDisplay from '../components/FactoryDisplay'; // eslint-disable-line
+import generateTilebag from '../services/tilebag';
 
 export default class Index extends Component {
   state = {
     playerCount: false,
     currentPlayer: 0,
-    tileBag: tilebag(),
+    tileBag: generateTilebag(),
+    isReadyToPlay: false,
+    factoryDisplays: [],
   };
 
   possiblePlayers = [
@@ -27,8 +31,59 @@ export default class Index extends Component {
     },
   ];
 
+  possibleFactoryDisplays = [
+    {
+      players: 2,
+      factoryDisplays: 5,
+    },
+    {
+      players: 3,
+      factoryDisplays: 7,
+    },
+    {
+      players: 4,
+      factoryDisplays: 9,
+    },
+  ];
+
   componentDidMount() {
     this.hydrateStateWithLocalStorage();
+  }
+
+  setUpRound = () => {
+    // Layout factory display thingys
+    // Put the tiles on the things.
+    // const { factoryDisplayCount } = this.state;
+    const { playerCount } = this.state;
+    const factoryDisplayCount = this.determineFactoryDisplayCount(playerCount);
+
+    const factoryDisplays = Array(factoryDisplayCount)
+      .fill([])
+      .map(() => this.drawTiles());
+
+    // if there are tiles in the bag, give them 4.
+    // Otherwise build a new bag, then give them 4.
+    // <FactoryDisplay tiles=[0,2,4,0] />
+
+    this.setState({ isReadyToPlay: true, factoryDisplays });
+  }
+
+  drawTiles = () => {
+    // return 4 tiles.
+    // remove those tiles from the state.
+    const { tileBag } = this.state;
+    const tilesToDraw = tileBag.splice(0, 4);
+    this.setState({ tileBag });
+
+    if (tilesToDraw.length === 4) {
+      return tilesToDraw;
+    }
+
+    // Refresh bag and draw if not enough.
+    const newTilebag = generateTilebag();
+    const newTiles = newTilebag.splice(0, 4);
+    this.setState({ tileBag: newTilebag });
+    return newTiles;
   }
 
   handleChange = ({ value }) => {
@@ -51,11 +106,30 @@ export default class Index extends Component {
     });
   };
 
+  determineFactoryDisplayCount = (playerCount) => {
+    if (!playerCount) {
+      return false;
+    }
+
+    const { factoryDisplays } = this.possibleFactoryDisplays
+      .find(({ players }) => (players === playerCount));
+
+    return factoryDisplays;
+  }
+
+  // Once the players are selected, that determines
+  // the number of mats to display.
+
+
   render() {
     const { possiblePlayers, handleChange } = this;
-    const { playerCount, currentPlayer, tileBag } = this.state;
+    const {
+      playerCount, currentPlayer, tileBag, isReadyToPlay, factoryDisplays,
+    } = this.state;
 
-    console.log({ currentPlayer, tileBag, possiblePlayers });
+    console.log({
+      currentPlayer, tileBag, possiblePlayers, factoryDisplays,
+    });
 
     return (
       <ThemeProvider>
@@ -64,13 +138,21 @@ export default class Index extends Component {
             <div>
               <p>How many players are there?</p>
               <Select
-                data={this.possiblePlayers}
+                data={possiblePlayers}
                 onChange={handleChange}
                 placeholder="Choose a number"
                 required
               />
             </div>
           )}
+          {playerCount && (
+          <div>
+Player count:
+            {playerCount}
+          </div>
+          )}
+          {!isReadyToPlay && (<Button primary onClick={this.setUpRound}>Draw tiles</Button>)}
+          {factoryDisplays.map(tiles => (<FactoryDisplay tiles={tiles} />))}
           <h1>Todo</h1>
           <ul>
             <li>Make the player grid</li>
