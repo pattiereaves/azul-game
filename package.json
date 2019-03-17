@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development next",
     "build": "NODE_ENV=production next build",
     "start": "next start",
-    "export": "next export",
+    "export": "NODE_ENV=production next export -o docs",
     "predeploy": "npm build; npm run export",
     "deploy": "gh-pages -d out"
   },
