@@ -8,6 +8,7 @@ export default class Index extends Component {
   state = {
     playerCount: false,
     currentPlayer: 0,
+    tileBag: [],
   };
 
   possiblePlayers = [
@@ -25,33 +26,35 @@ export default class Index extends Component {
     },
   ];
 
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+  }
+
   handleChange = ({ value }) => {
     const playerCount = Number(value);
-    this.setState({ playerCount: playerCount });
-    localStorage('playerCount', playerCount );
+    this.setState({ playerCount });
+    localStorage('playerCount', playerCount);
   };
 
   hydrateStateWithLocalStorage = () => {
     const { state } = this;
 
     Object.keys(state).forEach((key) => {
-      let value = localStorage.get(key);
+      const value = localStorage.get(key);
 
-      if (! value) {
+      if (!value) {
         return;
       }
 
       this.setState({ [key]: JSON.parse(value) });
-    })
+    });
   };
-
-  componentDidMount() {
-    this.hydrateStateWithLocalStorage();
-  }
 
   render() {
     const { possiblePlayers, handleChange } = this;
-    const { playerCount } = this.state;
+    const { playerCount, currentPlayer, tileBag } = this.state;
+
+    console.log({ currentPlayer, tileBag, possiblePlayers });
 
     return (
       <ThemeProvider>

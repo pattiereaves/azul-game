@@ -1,9 +1,9 @@
- import { Component } from 'react';
+import { PureComponent } from 'react';
 
- export default class Player extends Component {
-   render = () => {
-     return (
-       <div>this is a player.</div>
-     );
-   }
- }
+export default class Player extends PureComponent {
+  render() {
+    return (
+      <div>this is a player.</div>
+    );
+  }
+}
