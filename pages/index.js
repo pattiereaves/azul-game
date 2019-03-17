@@ -3,12 +3,13 @@ import localStorage from 'local-storage';
 import { ThemeProvider } from 'mineral-ui/themes';
 import Select from 'mineral-ui/Select';
 import Player from '../components/Player';
+import tilebag from '../services/tilebag';
 
 export default class Index extends Component {
   state = {
     playerCount: false,
     currentPlayer: 0,
-    tileBag: [],
+    tileBag: tilebag(),
   };
 
   possiblePlayers = [
