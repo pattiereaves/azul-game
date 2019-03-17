@@ -3,7 +3,7 @@ import localStorage from 'local-storage';
 import { ThemeProvider } from 'mineral-ui/themes';
 import Select from 'mineral-ui/Select';
 import Player from '../components/Player';
-import FactoryDisplay from '../components/FactoryDisplay'; // eslint-disable-line
+import FactoryDisplays from '../components/FactoryDisplays'; // eslint-disable-line
 import tilebag from '../services/tilebag';
 
 export default class Index extends Component {
@@ -117,6 +117,7 @@ export default class Index extends Component {
               />
             </div>
           )}
+          {playerCount && (<FactoryDisplays count={factoryDisplayCount} />)}
           {/* playerCount && this.determineFactoryDisplayCount(playerCount)) */}
           <h1>Todo</h1>
           <ul>
