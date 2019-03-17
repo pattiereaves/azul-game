@@ -7,8 +7,15 @@ export default class Player extends PureComponent {
   };
 
   render() {
+    const { score, hasCurrentTurn } = this.state;
+
     return (
-      <div>this is a player.</div>
+      <div>
+this is a player.
+        {score}
+        {' '}
+        {hasCurrentTurn}
+      </div>
     );
   }
 }
