@@ -15,6 +15,10 @@ export default class FactoryDisplay extends PureComponent {
     this.setState({ selectedType });
   }
 
+  // @todo create a function in the parent
+  // onclick adds selected tiles to player's mat.
+  // puts unselected tiles into center mat.
+
   render() {
     const { handleSelection } = this;
     const { tiles } = this.props;
