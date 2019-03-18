@@ -123,7 +123,7 @@ export default class Index extends Component {
     const { playerCount } = this.state;
     const nextID = playerID + 1;
     if (nextID < playerCount) {
-      this.setState({ currentPlayer: playerID + 1 });
+      this.setState({ currentPlayer: nextID });
       return;
     }
 
@@ -135,7 +135,7 @@ export default class Index extends Component {
     const { possiblePlayers, handleChange, handleTurnEnd } = this;
     const {
       playerCount,
-      currentPlayer, // eslint-disable-line
+      currentPlayer,
       tileBag, // eslint-disable-line
       isReadyToPlay,
       factoryDisplays,

@@ -16,7 +16,9 @@ export default class Player extends PureComponent {
     return (
       <div>
         {isCurrentPlayer && <IconCheck title="This is the current player" />}
-        this is a player.
+        Player
+        {' '}
+        {playerID}
         {isCurrentPlayer && (<Button onClick={() => handleTurnEnd(playerID)}>End turn</Button>)}
       </div>
     );
