@@ -21,6 +21,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -29,6 +31,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/pattie/Development/azul-game/components/FactoryDisplay.js";
+
 
 
 
@@ -51,8 +54,18 @@ function (_PureComponent) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(FactoryDisplay)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "PropTypes", {
-      tiles: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.Array.isRequired
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "propTypes", {
+      tiles: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.number).isRequired
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
+      selectedType: false
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleSelection", function (selectedType) {
+      _this.setState({
+        selectedType: selectedType
+      });
     });
 
     return _this;
@@ -60,17 +73,38 @@ function (_PureComponent) {
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(FactoryDisplay, [{
     key: "render",
+    // @todo create a function in the parent
+    // onclick adds selected tiles to player's mat.
+    // puts unselected tiles into center mat.
     value: function render() {
+      var handleSelection = this.handleSelection;
       var tiles = this.props.tiles;
+      var selectedType = this.state.selectedType;
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 27
         },
         __self: this
       }, tiles.map(function (tile) {
-        return tile;
-      }));
+        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+          onClick: function onClick() {
+            return handleSelection(tile);
+          },
+          primary: tile === selectedType,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          },
+          __self: this
+        }, tile);
+      }), selectedType !== false && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }, "Select all", ' ', selectedType, "s?"));
     }
   }]);
 
@@ -82,4 +116,4 @@ function (_PureComponent) {
 /***/ })
 
 })
-//# sourceMappingURL=index.js.f91f16e5241b73dc3cf1.hot-update.js.map
+//# sourceMappingURL=index.js.46a8d6a8997ef59c10b7.hot-update.js.map

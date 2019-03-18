@@ -1,5 +1,86 @@
 ((window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
 
+/***/ "./components/Center.js":
+/*!******************************!*\
+  !*** ./components/Center.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Center; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
+
+
+
+
+var _jsxFileName = "/Users/pattie/Development/azul-game/components/Center.js";
+
+
+
+
+var Center =
+/*#__PURE__*/
+function (_PureComponent) {
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Center, _PureComponent);
+
+  function Center() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Center);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Center)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "propTypes", {
+      tiles: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.number).isRequired
+    });
+
+    return _this;
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Center, [{
+    key: "render",
+    value: function render() {
+      var tiles = this.props.tiles;
+      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        },
+        __self: this
+      }, "This is the center mat.", tiles.map(function (tile) {
+        return tile;
+      }));
+    }
+  }]);
+
+  return Center;
+}(react__WEBPACK_IMPORTED_MODULE_7__["PureComponent"]);
+
+
+
+/***/ }),
+
 /***/ "./components/FactoryDisplay.js":
 /*!**************************************!*\
   !*** ./components/FactoryDisplay.js ***!
@@ -21,6 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -29,6 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/pattie/Development/azul-game/components/FactoryDisplay.js";
+
 
 
 
@@ -55,22 +139,53 @@ function (_PureComponent) {
       tiles: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.number).isRequired
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
+      selectedType: false
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleSelection", function (selectedType) {
+      _this.setState({
+        selectedType: selectedType
+      });
+    });
+
     return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(FactoryDisplay, [{
     key: "render",
+    // @todo create a function in the parent
+    // onclick adds selected tiles to player's mat.
+    // puts unselected tiles into center mat.
     value: function render() {
+      var handleSelection = this.handleSelection;
       var tiles = this.props.tiles;
+      var selectedType = this.state.selectedType;
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 27
         },
         __self: this
       }, tiles.map(function (tile) {
-        return tile;
-      }));
+        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+          onClick: function onClick() {
+            return handleSelection(tile);
+          },
+          primary: tile === selectedType,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          },
+          __self: this
+        }, tile);
+      }), selectedType !== false && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }, "Select all", ' ', selectedType, "s?"));
     }
   }]);
 
@@ -100,6 +215,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! mineral-ui-icons/IconCheck */ "./node_modules/mineral-ui-icons/IconCheck.js");
+/* harmony import */ var mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -108,6 +229,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/pattie/Development/azul-game/components/Player.js";
+
+
+
 
 
 
@@ -129,9 +253,10 @@ function (_PureComponent) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Player)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      score: 0,
-      hasCurrentTurn: false
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "propTypes", {
+      isCurrentPlayer: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.bool.isRequired,
+      handleTurnEnd: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.func.isRequired,
+      playerID: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.number.isRequired
     });
 
     return _this;
@@ -140,16 +265,33 @@ function (_PureComponent) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Player, [{
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          score = _this$state.score,
-          hasCurrentTurn = _this$state.hasCurrentTurn;
+      var _this$props = this.props,
+          isCurrentPlayer = _this$props.isCurrentPlayer,
+          handleTurnEnd = _this$props.handleTurnEnd,
+          playerID = _this$props.playerID;
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 17
         },
         __self: this
-      }, "this is a player.", score, ' ', hasCurrentTurn);
+      }, isCurrentPlayer && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_9___default.a, {
+        title: "This is the current player",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        },
+        __self: this
+      }), "Player", ' ', playerID, isCurrentPlayer && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+        onClick: function onClick() {
+          return handleTurnEnd(playerID);
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }, "End turn"));
     }
   }]);
 
@@ -6273,6 +6415,58 @@ function index (resultFn, isEqual) {
 
 /* harmony default export */ __webpack_exports__["default"] = (index);
 
+
+/***/ }),
+
+/***/ "./node_modules/mineral-ui-icons/IconCheck.js":
+/*!****************************************************!*\
+  !*** ./node_modules/mineral-ui-icons/IconCheck.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7; return function createRawReactElement(type, props, key, children) { var defaultProps = type && type.defaultProps; var childrenLength = arguments.length - 3; if (!props && childrenLength !== 0) { props = {}; } if (props && defaultProps) { for (var propName in defaultProps) { if (props[propName] === void 0) { props[propName] = defaultProps[propName]; } } } else if (!props) { props = defaultProps || {}; } if (childrenLength === 1) { props.children = children; } else if (childrenLength > 1) { var childArray = Array(childrenLength); for (var i = 0; i < childrenLength; i++) { childArray[i] = arguments[i + 3]; } props.children = childArray; } return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : '' + key, ref: null, props: props, _owner: null }; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = IconCheck;
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Icon = __webpack_require__(/*! mineral-ui/Icon */ "./node_modules/mineral-ui/Icon/index.js");
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _ref = _jsx('g', {}, void 0, _jsx('path', {
+  d: 'M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'
+}));
+
+/* eslint-disable prettier/prettier */
+function IconCheck(props) {
+  var iconProps = _extends({
+    rtl: false
+  }, props);
+
+  return _react2.default.createElement(
+    _Icon2.default,
+    iconProps,
+    _ref
+  );
+}
+
+IconCheck.displayName = 'IconCheck';
+IconCheck.category = 'navigation';
 
 /***/ }),
 
@@ -20938,7 +21132,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _components_Player__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/Player */ "./components/Player.js");
 /* harmony import */ var _components_FactoryDisplay__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/FactoryDisplay */ "./components/FactoryDisplay.js");
-/* harmony import */ var _services_tilebag__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../services/tilebag */ "./services/tilebag.js");
+/* harmony import */ var _components_Center__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/Center */ "./components/Center.js");
+/* harmony import */ var _services_tilebag__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../services/tilebag */ "./services/tilebag.js");
 
 
 
@@ -20954,6 +21149,8 @@ var _jsxFileName = "/Users/pattie/Development/azul-game/pages/index.js";
 
 
 
+
+ // eslint-disable-line
 
  // eslint-disable-line
 
@@ -20980,9 +21177,10 @@ function (_Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
       playerCount: false,
       currentPlayer: 0,
-      tileBag: Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_15__["default"])(),
+      tileBag: Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_16__["default"])(),
       isReadyToPlay: false,
-      factoryDisplays: []
+      factoryDisplays: [],
+      centerTiles: []
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "possiblePlayers", [{
@@ -21042,7 +21240,7 @@ function (_Component) {
       } // Refresh bag and draw if not enough.
 
 
-      var newTilebag = Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_15__["default"])();
+      var newTilebag = Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_16__["default"])();
       var newTiles = newTilebag.splice(0, 4);
 
       _this.setState({
@@ -21092,6 +21290,24 @@ function (_Component) {
       return factoryDisplays;
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "handleTurnEnd", function (playerID) {
+      var playerCount = _this.state.playerCount;
+      var nextID = playerID + 1;
+
+      if (nextID < playerCount) {
+        _this.setState({
+          currentPlayer: nextID
+        });
+
+        return;
+      } // Otherwise start over at the beginning.
+
+
+      _this.setState({
+        currentPlayer: 0
+      });
+    });
+
     return _this;
   }
 
@@ -21102,45 +21318,40 @@ function (_Component) {
     }
   }, {
     key: "render",
-    // Once the players are selected, that determines
-    // the number of mats to display.
     value: function render() {
       var possiblePlayers = this.possiblePlayers,
-          handleChange = this.handleChange;
+          handleChange = this.handleChange,
+          handleTurnEnd = this.handleTurnEnd;
       var _this$state = this.state,
           playerCount = _this$state.playerCount,
           currentPlayer = _this$state.currentPlayer,
           tileBag = _this$state.tileBag,
           isReadyToPlay = _this$state.isReadyToPlay,
-          factoryDisplays = _this$state.factoryDisplays;
-      console.log({
-        currentPlayer: currentPlayer,
-        tileBag: tileBag,
-        possiblePlayers: possiblePlayers,
-        factoryDisplays: factoryDisplays
-      });
+          factoryDisplays = _this$state.factoryDisplays,
+          centerTiles = _this$state.centerTiles;
+      var players = Array(playerCount).fill(false);
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(mineral_ui_themes__WEBPACK_IMPORTED_MODULE_10__["ThemeProvider"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 148
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 149
         },
         __self: this
       }, !playerCount && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 151
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 152
         },
         __self: this
       }, "How many players are there?"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(mineral_ui_Select__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -21150,13 +21361,13 @@ function (_Component) {
         required: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 153
         },
         __self: this
       })), playerCount && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 162
         },
         __self: this
       }, "Player count:", playerCount), !isReadyToPlay && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_12___default.a, {
@@ -21164,54 +21375,36 @@ function (_Component) {
         onClick: this.setUpRound,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 167
         },
         __self: this
-      }, "Draw tiles"), factoryDisplays.map(function (tiles) {
+      }, "Draw tiles"), isReadyToPlay && factoryDisplays.map(function (tiles) {
         return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_FactoryDisplay__WEBPACK_IMPORTED_MODULE_14__["default"], {
           tiles: tiles,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 155
+            lineNumber: 168
           },
           __self: this
         });
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("h1", {
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Center__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        tiles: centerTiles,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 169
         },
         __self: this
-      }, "Todo"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("ul", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 157
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 158
-        },
-        __self: this
-      }, "Make the player grid"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 159
-        },
-        __self: this
-      }, "Make a component to hold the tiles"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 160
-        },
-        __self: this
-      }, "Make a component to hold the mats")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Player__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 162
-        },
-        __self: this
+      }), players.map(function (val, index) {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Player__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          playerID: index,
+          isCurrentPlayer: index === currentPlayer,
+          handleTurnEnd: handleTurnEnd,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 171
+          },
+          __self: this
+        });
       })));
     }
   }]);
