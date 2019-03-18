@@ -1,20 +1,23 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import IconCheck from 'mineral-ui-icons/IconCheck';
+import Button from 'mineral-ui/Button';
 
 export default class Player extends PureComponent {
-  state = {
-    score: 0,
-    hasCurrentTurn: false,
+  propTypes = {
+    isCurrentPlayer: PropTypes.bool.isRequired,
+    handleTurnEnd: PropTypes.func.isRequired,
+    playerID: PropTypes.number.isRequired,
   };
 
   render() {
-    const { score, hasCurrentTurn } = this.state;
+    const { isCurrentPlayer, handleTurnEnd, playerID } = this.props;
 
     return (
       <div>
-this is a player.
-        {score}
-        {' '}
-        {hasCurrentTurn}
+        {isCurrentPlayer && <IconCheck title="This is the current player" />}
+        this is a player.
+        {isCurrentPlayer && (<Button onClick={() => handleTurnEnd(playerID)}>End turn</Button>)}
       </div>
     );
   }

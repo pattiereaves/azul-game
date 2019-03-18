@@ -5,6 +5,7 @@ import Select from 'mineral-ui/Select';
 import Button from 'mineral-ui/Button';
 import Player from '../components/Player';
 import FactoryDisplay from '../components/FactoryDisplay'; // eslint-disable-line
+import Center from '../components/Center'; // eslint-disable-line
 import generateTilebag from '../services/tilebag';
 
 export default class Index extends Component {
@@ -14,6 +15,7 @@ export default class Index extends Component {
     tileBag: generateTilebag(),
     isReadyToPlay: false,
     factoryDisplays: [],
+    centerTiles: [],
   };
 
   possiblePlayers = [
@@ -117,19 +119,30 @@ export default class Index extends Component {
     return factoryDisplays;
   }
 
-  // Once the players are selected, that determines
-  // the number of mats to display.
+  handleTurnEnd = (playerID) => {
+    const { playerCount } = this.state;
+    const nextID = playerID + 1;
+    if (nextID < playerCount) {
+      this.setState({ currentPlayer: playerID + 1 });
+      return;
+    }
 
+    // Otherwise start over at the beginning.
+    this.setState({ currentPlayer: 0 });
+  };
 
   render() {
-    const { possiblePlayers, handleChange } = this;
+    const { possiblePlayers, handleChange, handleTurnEnd } = this;
     const {
-      playerCount, currentPlayer, tileBag, isReadyToPlay, factoryDisplays,
+      playerCount,
+      currentPlayer, // eslint-disable-line
+      tileBag, // eslint-disable-line
+      isReadyToPlay,
+      factoryDisplays,
+      centerTiles,
     } = this.state;
 
-    console.log({
-      currentPlayer, tileBag, possiblePlayers, factoryDisplays,
-    });
+    const players = Array(playerCount).fill(false);
 
     return (
       <ThemeProvider>
@@ -147,19 +160,20 @@ export default class Index extends Component {
           )}
           {playerCount && (
           <div>
-Player count:
+            Player count:
             {playerCount}
           </div>
           )}
           {!isReadyToPlay && (<Button primary onClick={this.setUpRound}>Draw tiles</Button>)}
-          {factoryDisplays.map(tiles => (<FactoryDisplay tiles={tiles} />))}
-          <h1>Todo</h1>
-          <ul>
-            <li>Make the player grid</li>
-            <li>Make a component to hold the tiles</li>
-            <li>Make a component to hold the mats</li>
-          </ul>
-          <Player />
+          {isReadyToPlay && factoryDisplays.map(tiles => (<FactoryDisplay tiles={tiles} />))}
+          <Center tiles={centerTiles} />
+          {players.map((val, index) => (
+            <Player
+              playerID={index}
+              isCurrentPlayer={index === currentPlayer}
+              handleTurnEnd={handleTurnEnd}
+            />
+          ))}
         </div>
       </ThemeProvider>
     );

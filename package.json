@@ -28,6 +28,7 @@
     "emotion-theming": "^10.0.9",
     "local-storage": "^1.4.2",
     "mineral-ui": "^0.57.0",
+    "mineral-ui-icons": "^0.5.0",
     "next": "^8.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
