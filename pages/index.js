@@ -173,6 +173,9 @@ export default class Index extends Component {
 
     // Give selected tiles from display to current player.
     this.setState({ players: updatedPlayers });
+
+    // Advance player turn.
+    this.handleTurnEnd(currentPlayer);
   }
 
   render() {
