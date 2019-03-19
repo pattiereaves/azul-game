@@ -2,7 +2,7 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 export default class Center extends PureComponent {
-  propTypes = {
+  static propTypes = {
     tiles: PropTypes.arrayOf(PropTypes.number).isRequired,
   };
 

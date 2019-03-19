@@ -16,6 +16,7 @@ export default class Index extends Component {
     isReadyToPlay: false,
     factoryDisplays: [],
     centerTiles: [],
+    players: [], // eslint-disable-line
   };
 
   possiblePlayers = [
@@ -55,7 +56,6 @@ export default class Index extends Component {
   setUpRound = () => {
     // Layout factory display thingys
     // Put the tiles on the things.
-    // const { factoryDisplayCount } = this.state;
     const { playerCount } = this.state;
     const factoryDisplayCount = this.determineFactoryDisplayCount(playerCount);
 
@@ -88,10 +88,14 @@ export default class Index extends Component {
     return newTiles;
   }
 
-  handleChange = ({ value }) => {
+  handlePlayerSelection = ({ value }) => {
     const playerCount = Number(value);
-    this.setState({ playerCount });
+    const players = Array(playerCount).fill({
+      tilesToPlace: [],
+    });
+    this.setState({ playerCount, players });
     localStorage('playerCount', playerCount);
+    localStorage('players', players);
   };
 
   hydrateStateWithLocalStorage = () => {
@@ -104,7 +108,7 @@ export default class Index extends Component {
         return;
       }
 
-      this.setState({ [key]: JSON.parse(value) });
+      this.setState({ [key]: value });
     });
   };
 
@@ -131,8 +135,54 @@ export default class Index extends Component {
     this.setState({ currentPlayer: 0 });
   };
 
+  handleTileSelection = (displayID, tileSelection) => {
+    const {
+      factoryDisplays,
+      players,
+      currentPlayer,
+      centerTiles,
+    } = this.state;
+    const activeDisplay = factoryDisplays[displayID];
+
+    // Remove activeDisplay from factory displays.
+    factoryDisplays.splice(displayID, 1);
+    this.setState({ factoryDisplays });
+
+    // Give remaining tiles to center.
+    const remainingTiles = activeDisplay.filter(tile => tile !== tileSelection);
+    const newCenterTiles = centerTiles.concat(remainingTiles);
+    this.setState({ centerTiles: newCenterTiles });
+
+    // Get all of selected files from activeDisplay
+    const playersTiles = activeDisplay.filter(tile => tile === tileSelection);
+    const updatedPlayers = players.reduce((acc, player, index) => {
+      if (index !== currentPlayer) {
+        return [...acc, player];
+      }
+
+      const tilesToPlace = player.tilesToPlace.concat(playersTiles);
+
+      return [
+        ...acc,
+        {
+          ...player,
+          tilesToPlace,
+        },
+      ];
+    }, []);
+
+    // Give selected tiles from display to current player.
+    this.setState({ players: updatedPlayers });
+  }
+
   render() {
-    const { possiblePlayers, handleChange, handleTurnEnd } = this;
+    const {
+      possiblePlayers,
+      handlePlayerSelection,
+      handleTurnEnd,
+      handleTileSelection,
+    } = this;
+
     const {
       playerCount,
       currentPlayer,
@@ -152,7 +202,7 @@ export default class Index extends Component {
               <p>How many players are there?</p>
               <Select
                 data={possiblePlayers}
-                onChange={handleChange}
+                onChange={handlePlayerSelection}
                 placeholder="Choose a number"
                 required
               />
@@ -165,7 +215,13 @@ export default class Index extends Component {
           </div>
           )}
           {!isReadyToPlay && (<Button primary onClick={this.setUpRound}>Draw tiles</Button>)}
-          {isReadyToPlay && factoryDisplays.map(tiles => (<FactoryDisplay tiles={tiles} />))}
+          {isReadyToPlay && factoryDisplays.map((tiles, index) => (
+            <FactoryDisplay
+              displayID={index}
+              tiles={tiles}
+              handleTileSelection={handleTileSelection}
+            />
+          ))}
           <Center tiles={centerTiles} />
           {players.map((val, index) => (
             <Player

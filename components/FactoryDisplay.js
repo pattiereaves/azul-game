@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import Button from 'mineral-ui/Button';
 
 export default class FactoryDisplay extends PureComponent {
-  propTypes = {
+  static propTypes = {
     tiles: PropTypes.arrayOf(PropTypes.number).isRequired,
+    handleTileSelection: PropTypes.func.isRequired,
+    displayID: PropTypes.number.isRequired,
   };
 
   state = {
-    selectedType: false,
+    selectedTile: false,
   };
 
-  handleSelection = (selectedType) => {
-    this.setState({ selectedType });
+  handleSelection = (selectedTile) => {
+    this.setState({ selectedTile });
   }
 
   // @todo create a function in the parent
@@ -21,23 +23,23 @@ export default class FactoryDisplay extends PureComponent {
 
   render() {
     const { handleSelection } = this;
-    const { tiles } = this.props;
-    const { selectedType } = this.state;
+    const { tiles, handleTileSelection, displayID } = this.props;
+    const { selectedTile } = this.state;
     return (
       <div>
         {tiles.map(tile => (
           <Button
             onClick={() => handleSelection(tile)}
-            primary={tile === selectedType}
+            primary={tile === selectedTile}
           >
             {tile}
           </Button>
         ))}
-        {selectedType !== false && (
-          <Button>
+        {selectedTile !== false && (
+          <Button onClick={() => handleTileSelection(displayID, selectedTile)}>
             Select all
             {' '}
-            {selectedType}
+            {selectedTile}
             s?
           </Button>
         )}
