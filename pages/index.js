@@ -56,7 +56,7 @@ export default class Index extends Component {
   setUpRound = () => {
     // Layout factory display thingys
     // Put the tiles on the things.
-    const { playerCount } = this.state;
+    const { playerCount, players } = this.state;
     const factoryDisplayCount = this.determineFactoryDisplayCount(playerCount);
 
     const factoryDisplays = Array(factoryDisplayCount)
@@ -68,6 +68,22 @@ export default class Index extends Component {
     // <FactoryDisplay tiles=[0,2,4,0] />
 
     this.setState({ isReadyToPlay: true, factoryDisplays });
+
+    // Update first player.
+    const firstPlayerTileHolder = players
+      .findIndex(({ willBeFirstNextRound }) => (willBeFirstNextRound));
+    const nextFirstPlayerID = firstPlayerTileHolder > -1
+      ? firstPlayerTileHolder : 0;
+    this.setState({ currentPlayer: nextFirstPlayerID });
+
+    // Reset player boards.
+    const resetPlayers = players.map(player => ({
+      ...player,
+      tilesToPlace: [],
+      willBeFirstNextRound: false,
+      floorLine: [],
+    }));
+    this.setState({ players: resetPlayers });
   }
 
   drawTiles = () => {
@@ -92,6 +108,16 @@ export default class Index extends Component {
     const playerCount = Number(value);
     const players = Array(playerCount).fill({
       tilesToPlace: [],
+      score: 0,
+      willBeFirstNextRound: false,
+      patternLines: [
+        [false],
+        [false, false],
+        [false, false, false],
+        [false, false, false, false],
+        [false, false, false, false, false],
+      ],
+      floorLine: [],
     });
     this.setState({ playerCount, players });
     localStorage('playerCount', playerCount);
@@ -173,9 +199,6 @@ export default class Index extends Component {
 
     // Give selected tiles from display to current player.
     this.setState({ players: updatedPlayers });
-
-    // Advance player turn.
-    this.handleTurnEnd(currentPlayer);
   }
 
   render() {
@@ -193,9 +216,8 @@ export default class Index extends Component {
       isReadyToPlay,
       factoryDisplays,
       centerTiles,
+      players,
     } = this.state;
-
-    const players = Array(playerCount).fill(false);
 
     return (
       <ThemeProvider>
@@ -226,11 +248,12 @@ export default class Index extends Component {
             />
           ))}
           <Center tiles={centerTiles} />
-          {players.map((val, index) => (
+          {players.map((player, index) => (
             <Player
               playerID={index}
               isCurrentPlayer={index === currentPlayer}
               handleTurnEnd={handleTurnEnd}
+              data={player}
             />
           ))}
         </div>
