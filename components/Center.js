@@ -1,5 +1,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Button from 'mineral-ui/Button';
 
 export default class Center extends PureComponent {
   static propTypes = {
@@ -11,7 +12,7 @@ export default class Center extends PureComponent {
     return (
       <div>
         This is the center mat.
-        {tiles.map(tile => (tile))}
+        {tiles.map(tile => (<Button>{tile}</Button>))}
       </div>
     );
   }
