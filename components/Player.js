@@ -2,6 +2,7 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import Button from 'mineral-ui/Button';
+import PatternLines from './PatternLines';
 
 export default class Player extends PureComponent {
   static propTypes = {
@@ -9,7 +10,7 @@ export default class Player extends PureComponent {
     handleTurnEnd: PropTypes.func.isRequired,
     playerID: PropTypes.number.isRequired,
     data: PropTypes.shape({
-      tilesToPlace: PropTypes.array.isRequired,
+      tilesToPlace: PropTypes.arrayOf(PropTypes.number).isRequired,
       score: PropTypes.number.isRequired,
       willBeFirstNextRound: PropTypes.bool.isRequired,
       patternLines: PropTypes.arrayOf(
@@ -32,7 +33,7 @@ export default class Player extends PureComponent {
     const {
       isCurrentPlayer, handleTurnEnd, playerID, data,
     } = this.props;
-    const { tilesToPlace } = data;
+    const { tilesToPlace, patternLines: lines } = data;
 
     return (
       <div>
@@ -42,6 +43,7 @@ export default class Player extends PureComponent {
         {playerID}
         {isCurrentPlayer && (<Button onClick={() => handleTurnEnd(playerID)}>End turn</Button>)}
         {tilesToPlace.map(tile => <Button>{tile}</Button>)}
+        <PatternLines lines={lines} tilesToPlace={tilesToPlace} />
       </div>
     );
   }
