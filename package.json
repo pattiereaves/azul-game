@@ -9,7 +9,7 @@
     "start": "next start",
     "export": "NODE_ENV=production next export",
     "predeploy": "NODE_ENV=production npm run build; npm run export",
-    "deploy": "gh-pages -d out"
+    "deploy": "NODE_ENV=production gh-pages -d out"
   },
   "repository": {
     "type": "git",
