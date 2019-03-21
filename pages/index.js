@@ -8,6 +8,13 @@ import FactoryDisplay from '../components/FactoryDisplay'; // eslint-disable-lin
 import Center from '../components/Center'; // eslint-disable-line
 import generateTilebag from '../services/tilebag';
 
+//  @todo shouldn't be able to keep selecting tiles once tiles have been selected.
+//  unset previous selection at every turn change.
+//  Ability to select center tiles like factory displays.
+//  First player to select center tiles gets start player tile.
+//  Add tiles to the wall once every factory display has been used and the cneter is empty.
+
+
 export default class Index extends Component {
   state = {
     playerCount: false,
