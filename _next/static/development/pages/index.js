@@ -201,6 +201,166 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
 
 /***/ }),
 
+/***/ "./components/PatternLines.js":
+/*!************************************!*\
+  !*** ./components/PatternLines.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PatternLines; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
+
+
+
+
+
+var _jsxFileName = "/Users/pattie/Development/azul-game/components/PatternLines.js";
+
+
+
+
+
+var PatternLines =
+/*#__PURE__*/
+function (_PureComponent) {
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__["default"])(PatternLines, _PureComponent);
+
+  function PatternLines() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, PatternLines);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(PatternLines)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "canPlaceTilesInThisRow", function (line, tiles) {
+      // Are there tiles to place?
+      if (tiles.length < 1) {
+        return false;
+      } // Is there any room in this row?
+
+
+      var emptyPlaces = line.filter(function (place) {
+        return place === false;
+      });
+
+      if (emptyPlaces.length === 0) {
+        return false;
+      } // If this row is empty than anything can be placed here.
+
+
+      if (emptyPlaces.length === line.length) {
+        return true;
+      } // Do the tiles that are already in this row match the tiles to be placed?
+
+
+      var _tiles = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(tiles, 1),
+          tile = _tiles[0];
+
+      var _line = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(line, 1),
+          linetype = _line[0];
+
+      return tile === linetype;
+    });
+
+    return _this;
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(PatternLines, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          lines = _this$props.lines,
+          tilesToPlace = _this$props.tilesToPlace,
+          assignTilesToPatternLines = _this$props.assignTilesToPatternLines,
+          playerID = _this$props.playerID;
+      var canPlaceTilesInThisRow = this.canPlaceTilesInThisRow;
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("ul", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        },
+        __self: this
+      }, lines.map(function (line, index) {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("li", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          },
+          __self: this
+        }, canPlaceTilesInThisRow(line, tilesToPlace) && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+          primary: true,
+          onClick: function onClick() {
+            return assignTilesToPatternLines(playerID, index, tilesToPlace);
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55
+          },
+          __self: this
+        }, "Place tiles in this row"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("ul", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 62
+          },
+          __self: this
+        }, line.map(function (tile) {
+          return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("li", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            },
+            __self: this
+          }, tile));
+        })));
+      }));
+    }
+  }]);
+
+  return PatternLines;
+}(react__WEBPACK_IMPORTED_MODULE_8__["PureComponent"]);
+
+Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(PatternLines, "propTypes", {
+  lines: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.bool, prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.number]))).isRequired,
+  tilesToPlace: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.number).isRequired,
+  assignTilesToPatternLines: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func.isRequired,
+  playerID: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.number.isRequired
+});
+
+
+
+/***/ }),
+
 /***/ "./components/Player.js":
 /*!******************************!*\
   !*** ./components/Player.js ***!
@@ -225,6 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
 /* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _PatternLines__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./PatternLines */ "./components/PatternLines.js");
 
 
 
@@ -232,6 +393,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/pattie/Development/azul-game/components/Player.js";
+
 
 
 
@@ -251,52 +413,74 @@ function (_PureComponent) {
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Player, [{
     key: "render",
-    // if there are tiles to place, show the floor lines.
-    // a button for which pattern line to fill
-    // if there are more tiles than pattern line, push the remaining to the floorLine
-    // need option to send all tiles to the floorline
-    // need to gray out pattern lines that aren't the same tile type
-    // (button to place should only appear for legal moves)
-    // after placing tiles on pattern line, move to next turn.
-    // Create this logic in the index.js file.
     value: function render() {
       var _this$props = this.props,
           isCurrentPlayer = _this$props.isCurrentPlayer,
-          handleTurnEnd = _this$props.handleTurnEnd,
           playerID = _this$props.playerID,
-          data = _this$props.data;
-      var tilesToPlace = data.tilesToPlace;
+          data = _this$props.data,
+          assignTilesToPatternLines = _this$props.assignTilesToPatternLines;
+      var tilesToPlace = data.tilesToPlace,
+          lines = data.patternLines,
+          floorLine = data.floorLine;
       return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 30
         },
         __self: this
       }, isCurrentPlayer && react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(mineral_ui_icons_IconCheck__WEBPACK_IMPORTED_MODULE_8___default.a, {
         title: "This is the current player",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 31
         },
         __self: this
-      }), "Player", ' ', playerID, isCurrentPlayer && react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
-        onClick: function onClick() {
-          return handleTurnEnd(playerID);
+      }), "Player", ' ', playerID, tilesToPlace.map(function (tile) {
+        return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          },
+          __self: this
+        }, tile);
+      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_PatternLines__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        lines: lines,
+        tilesToPlace: tilesToPlace,
+        assignTilesToPatternLines: assignTilesToPatternLines,
+        playerID: playerID,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
         },
+        __self: this
+      }), floorLine && react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 43
         },
         __self: this
-      }, "End turn"), tilesToPlace.map(function (tile) {
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        },
+        __self: this
+      }, "Floor line:"), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("ul", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45
+        },
+        __self: this
+      }, floorLine.map(function (tile) {
         return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+          warning: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 46
           },
           __self: this
         }, tile);
-      }));
+      }))));
     }
   }]);
 
@@ -305,15 +489,15 @@ function (_PureComponent) {
 
 Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(Player, "propTypes", {
   isCurrentPlayer: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.bool.isRequired,
-  handleTurnEnd: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.func.isRequired,
   playerID: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.number.isRequired,
   data: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.shape({
-    tilesToPlace: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.array.isRequired,
+    tilesToPlace: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.number).isRequired,
     score: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.number.isRequired,
     willBeFirstNextRound: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.bool.isRequired,
     patternLines: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.bool, prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.number]))).isRequired,
     floorLine: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.number).isRequired
-  }).isRequired
+  }).isRequired,
+  assignTilesToPatternLines: prop_types__WEBPACK_IMPORTED_MODULE_7___default.a.func.isRequired
 });
 
 
@@ -342,6 +526,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/array/is-array */ ".
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/get-iterator */ "./node_modules/core-js/library/fn/get-iterator.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js ***!
@@ -350,6 +545,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/array/is-array */ ".
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./node_modules/core-js/library/fn/is-iterable.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/number/is-integer.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/number/is-integer.js ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/number/is-integer */ "./node_modules/core-js/library/fn/number/is-integer.js");
 
 /***/ }),
 
@@ -449,6 +655,25 @@ module.exports = __webpack_require__(/*! core-js/library/fn/symbol */ "./node_mo
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/symbol/iterator */ "./node_modules/core-js/library/fn/symbol/iterator.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _arrayWithHoles; });
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/array/is-array */ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js");
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__);
+
+function _arrayWithHoles(arr) {
+  if (_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default()(arr)) return arr;
+}
 
 /***/ }),
 
@@ -657,6 +882,63 @@ function _iterableToArray(iter) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _iterableToArrayLimit; });
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/get-iterator */ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js");
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__);
+
+function _iterableToArrayLimit(arr, i) {
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _nonIterableRest; });
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableSpread.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableSpread.js ***!
@@ -760,6 +1042,28 @@ function _setPrototypeOf(o, p) {
   };
 
   return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _slicedToArray; });
+/* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js");
+/* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js");
+/* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js");
+
+
+
+function _slicedToArray(arr, i) {
+  return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 /***/ }),
@@ -3298,6 +3602,20 @@ module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/fn/get-iterator.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/get-iterator.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
+__webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
+module.exports = __webpack_require__(/*! ../modules/core.get-iterator */ "./node_modules/core-js/library/modules/core.get-iterator.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/is-iterable.js":
 /*!********************************************************!*\
   !*** ./node_modules/core-js/library/fn/is-iterable.js ***!
@@ -3308,6 +3626,19 @@ module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/
 __webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
 __webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
 module.exports = __webpack_require__(/*! ../modules/core.is-iterable */ "./node_modules/core-js/library/modules/core.is-iterable.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/number/is-integer.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/fn/number/is-integer.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../../modules/es6.number.is-integer */ "./node_modules/core-js/library/modules/es6.number.is-integer.js");
+module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Number.isInteger;
 
 
 /***/ }),
@@ -3939,6 +4270,23 @@ module.exports = function (it) {
 var cof = __webpack_require__(/*! ./_cof */ "./node_modules/core-js/library/modules/_cof.js");
 module.exports = Array.isArray || function isArray(arg) {
   return cof(arg) == 'Array';
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_is-integer.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_is-integer.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 20.1.2.3 Number.isInteger(number)
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
+var floor = Math.floor;
+module.exports = function isInteger(it) {
+  return !isObject(it) && isFinite(it) && floor(it) === it;
 };
 
 
@@ -4864,6 +5212,24 @@ module.exports = __webpack_require__(/*! ./_core */ "./node_modules/core-js/libr
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/core.get-iterator.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/core.get-iterator.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/core-js/library/modules/_an-object.js");
+var get = __webpack_require__(/*! ./core.get-iterator-method */ "./node_modules/core-js/library/modules/core.get-iterator-method.js");
+module.exports = __webpack_require__(/*! ./_core */ "./node_modules/core-js/library/modules/_core.js").getIterator = function (it) {
+  var iterFn = get(it);
+  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
+  return anObject(iterFn.call(it));
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/core.is-iterable.js":
 /*!******************************************************************!*\
   !*** ./node_modules/core-js/library/modules/core.is-iterable.js ***!
@@ -4991,6 +5357,21 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.number.is-integer.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.number.is-integer.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 20.1.2.3 Number.isInteger(number)
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+
+$export($export.S, 'Number', { isInteger: __webpack_require__(/*! ./_is-integer */ "./node_modules/core-js/library/modules/_is-integer.js") });
 
 
 /***/ }),
@@ -21243,31 +21624,34 @@ module.exports = (__webpack_require__(/*! dll-reference dll_9d2e7eb3ce4bb71fa337
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
-/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var mineral_ui_themes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! mineral-ui/themes */ "./node_modules/mineral-ui/themes/index.js");
-/* harmony import */ var mineral_ui_themes__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_themes__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var mineral_ui_Select__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! mineral-ui/Select */ "./node_modules/mineral-ui/Select/index.js");
-/* harmony import */ var mineral_ui_Select__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Select__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
-/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _components_Player__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/Player */ "./components/Player.js");
-/* harmony import */ var _components_FactoryDisplay__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/FactoryDisplay */ "./components/FactoryDisplay.js");
-/* harmony import */ var _components_Center__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/Center */ "./components/Center.js");
-/* harmony import */ var _services_tilebag__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../services/tilebag */ "./services/tilebag.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_number_is_integer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/number/is-integer */ "./node_modules/@babel/runtime-corejs2/core-js/number/is-integer.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_number_is_integer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_number_is_integer__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var mineral_ui_themes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! mineral-ui/themes */ "./node_modules/mineral-ui/themes/index.js");
+/* harmony import */ var mineral_ui_themes__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_themes__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var mineral_ui_Select__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! mineral-ui/Select */ "./node_modules/mineral-ui/Select/index.js");
+/* harmony import */ var mineral_ui_Select__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Select__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! mineral-ui/Button */ "./node_modules/mineral-ui/Button/index.js");
+/* harmony import */ var mineral_ui_Button__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _components_Player__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/Player */ "./components/Player.js");
+/* harmony import */ var _components_FactoryDisplay__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/FactoryDisplay */ "./components/FactoryDisplay.js");
+/* harmony import */ var _components_Center__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/Center */ "./components/Center.js");
+/* harmony import */ var _services_tilebag__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../services/tilebag */ "./services/tilebag.js");
+
 
 
 
@@ -21290,30 +21674,34 @@ var _jsxFileName = "/Users/pattie/Development/azul-game/pages/index.js";
 
  // eslint-disable-line
 
-
+ //  @todo shouldn't be able to keep selecting tiles once tiles have been selected.
+//  unset previous selection at every turn change.
+//  Ability to select center tiles like factory displays.
+//  First player to select center tiles gets start player tile.
+//  Add tiles to the wall once every factory display has been used and the cneter is empty.
 
 var Index =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__["default"])(Index, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_9__["default"])(Index, _Component);
 
   function Index() {
     var _getPrototypeOf2;
 
     var _this;
 
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Index);
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Index);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Index)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(Index)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "state", {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "state", {
       playerCount: false,
       currentPlayer: 0,
-      tileBag: Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_18__["default"])(),
+      tileBag: Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_19__["default"])(),
       isReadyToPlay: false,
       factoryDisplays: [],
       centerTiles: [],
@@ -21321,7 +21709,7 @@ function (_Component) {
 
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "possiblePlayers", [{
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "possiblePlayers", [{
       text: '2',
       value: '2'
     }, {
@@ -21332,7 +21720,7 @@ function (_Component) {
       value: '4'
     }]);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "possibleFactoryDisplays", [{
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "possibleFactoryDisplays", [{
       players: 2,
       factoryDisplays: 5
     }, {
@@ -21343,7 +21731,7 @@ function (_Component) {
       factoryDisplays: 9
     }]);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "setUpRound", function () {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "setUpRound", function () {
       // Layout factory display thingys
       // Put the tiles on the things.
       var _this$state = _this.state,
@@ -21376,7 +21764,7 @@ function (_Component) {
 
 
       var resetPlayers = players.map(function (player) {
-        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_2__["default"])({}, player, {
+        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_3__["default"])({}, player, {
           tilesToPlace: [],
           willBeFirstNextRound: false,
           floorLine: []
@@ -21388,7 +21776,7 @@ function (_Component) {
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "drawTiles", function () {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "drawTiles", function () {
       // return 4 tiles.
       // remove those tiles from the state.
       var tileBag = _this.state.tileBag;
@@ -21403,7 +21791,7 @@ function (_Component) {
       } // Refresh bag and draw if not enough.
 
 
-      var newTilebag = Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_18__["default"])();
+      var newTilebag = Object(_services_tilebag__WEBPACK_IMPORTED_MODULE_19__["default"])();
       var newTiles = newTilebag.splice(0, 4);
 
       _this.setState({
@@ -21413,7 +21801,7 @@ function (_Component) {
       return newTiles;
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "handlePlayerSelection", function (_ref2) {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "handlePlayerSelection", function (_ref2) {
       var value = _ref2.value;
       var playerCount = Number(value);
       var players = Array(playerCount).fill({
@@ -21429,26 +21817,26 @@ function (_Component) {
         players: players
       });
 
-      local_storage__WEBPACK_IMPORTED_MODULE_11___default()('playerCount', playerCount);
-      local_storage__WEBPACK_IMPORTED_MODULE_11___default()('players', players);
+      local_storage__WEBPACK_IMPORTED_MODULE_12___default()('playerCount', playerCount);
+      local_storage__WEBPACK_IMPORTED_MODULE_12___default()('players', players);
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "hydrateStateWithLocalStorage", function () {
-      var _assertThisInitialize = Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this),
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "hydrateStateWithLocalStorage", function () {
+      var _assertThisInitialize = Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this),
           state = _assertThisInitialize.state;
 
-      _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(state).forEach(function (key) {
-        var value = local_storage__WEBPACK_IMPORTED_MODULE_11___default.a.get(key);
+      _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_2___default()(state).forEach(function (key) {
+        var value = local_storage__WEBPACK_IMPORTED_MODULE_12___default.a.get(key);
 
         if (!value) {
           return;
         }
 
-        _this.setState(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])({}, key, value));
+        _this.setState(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])({}, key, value));
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "determineFactoryDisplayCount", function (playerCount) {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "determineFactoryDisplayCount", function (playerCount) {
       if (!playerCount) {
         return false;
       }
@@ -21462,7 +21850,7 @@ function (_Component) {
       return factoryDisplays;
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "handleTurnEnd", function (playerID) {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "handleTurnEnd", function (playerID) {
       var playerCount = _this.state.playerCount;
       var nextID = playerID + 1;
 
@@ -21480,7 +21868,7 @@ function (_Component) {
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "handleTileSelection", function (displayID, tileSelection) {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "handleTileSelection", function (displayID, tileSelection) {
       var _this$state2 = _this.state,
           factoryDisplays = _this$state2.factoryDisplays,
           players = _this$state2.players,
@@ -21510,11 +21898,11 @@ function (_Component) {
       });
       var updatedPlayers = players.reduce(function (acc, player, index) {
         if (index !== currentPlayer) {
-          return [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(acc), [player]);
+          return [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(acc), [player]);
         }
 
         var tilesToPlace = player.tilesToPlace.concat(playersTiles);
-        return [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(acc), [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_2__["default"])({}, player, {
+        return [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(acc), [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_3__["default"])({}, player, {
           tilesToPlace: tilesToPlace
         })]);
       }, []); // Give selected tiles from display to current player.
@@ -21524,10 +21912,56 @@ function (_Component) {
       });
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "assignTilesToPatternLines", function (playerID, lineIndex, tilesToPlace) {
+      var players = _this.state.players;
+      var player = players[playerID];
+      var patternLines = player.patternLines;
+      var line = patternLines[lineIndex];
+      var tiles = tilesToPlace;
+      var filledLine = line.map(function (place) {
+        if (place === false) {
+          var assignedPlace = tiles.pop();
+
+          if (_babel_runtime_corejs2_core_js_number_is_integer__WEBPACK_IMPORTED_MODULE_0___default()(assignedPlace)) {
+            return assignedPlace;
+          }
+
+          return false;
+        }
+
+        return place;
+      }); // Update lines.
+
+      var updatedLines = patternLines.map(function (patternLine, index) {
+        if (index === lineIndex) {
+          return filledLine;
+        }
+
+        return patternLine;
+      });
+      var updatedPlayers = players.map(function (oldPlayer, index) {
+        if (index === playerID) {
+          return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_3__["default"])({}, oldPlayer, {
+            patternLines: updatedLines,
+            floorLine: oldPlayer.floorLine.concat(tiles),
+            tilesToPlace: []
+          });
+        }
+
+        return oldPlayer;
+      });
+
+      _this.setState({
+        players: updatedPlayers
+      });
+
+      _this.handleTurnEnd(playerID);
+    });
+
     return _this;
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Index, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(Index, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.hydrateStateWithLocalStorage();
@@ -21538,7 +21972,8 @@ function (_Component) {
       var possiblePlayers = this.possiblePlayers,
           handlePlayerSelection = this.handlePlayerSelection,
           handleTurnEnd = this.handleTurnEnd,
-          handleTileSelection = this.handleTileSelection;
+          handleTileSelection = this.handleTileSelection,
+          assignTilesToPatternLines = this.assignTilesToPatternLines;
       var _this$state3 = this.state,
           playerCount = _this$state3.playerCount,
           currentPlayer = _this$state3.currentPlayer,
@@ -21547,81 +21982,82 @@ function (_Component) {
           factoryDisplays = _this$state3.factoryDisplays,
           centerTiles = _this$state3.centerTiles,
           players = _this$state3.players;
-      return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(mineral_ui_themes__WEBPACK_IMPORTED_MODULE_12__["ThemeProvider"], {
+      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(mineral_ui_themes__WEBPACK_IMPORTED_MODULE_13__["ThemeProvider"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 223
+          lineNumber: 277
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 224
+          lineNumber: 278
         },
         __self: this
-      }, !playerCount && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+      }, !playerCount && react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 226
+          lineNumber: 280
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 227
+          lineNumber: 281
         },
         __self: this
-      }, "How many players are there?"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(mineral_ui_Select__WEBPACK_IMPORTED_MODULE_13___default.a, {
+      }, "How many players are there?"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(mineral_ui_Select__WEBPACK_IMPORTED_MODULE_14___default.a, {
         data: possiblePlayers,
         onChange: handlePlayerSelection,
         placeholder: "Choose a number",
         required: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 282
         },
         __self: this
-      })), playerCount && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+      })), playerCount && react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 237
+          lineNumber: 291
         },
         __self: this
-      }, "Player count:", playerCount), !isReadyToPlay && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_14___default.a, {
+      }, "Player count:", playerCount), !isReadyToPlay && react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(mineral_ui_Button__WEBPACK_IMPORTED_MODULE_15___default.a, {
         primary: true,
         onClick: this.setUpRound,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 242
+          lineNumber: 296
         },
         __self: this
       }, "Draw tiles"), isReadyToPlay && factoryDisplays.map(function (tiles, index) {
-        return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_FactoryDisplay__WEBPACK_IMPORTED_MODULE_16__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_FactoryDisplay__WEBPACK_IMPORTED_MODULE_17__["default"], {
           displayID: index,
           tiles: tiles,
           handleTileSelection: handleTileSelection,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 244
+            lineNumber: 298
           },
           __self: this
         });
-      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_Center__WEBPACK_IMPORTED_MODULE_17__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_Center__WEBPACK_IMPORTED_MODULE_18__["default"], {
         tiles: centerTiles,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 250
+          lineNumber: 304
         },
         __self: this
       }), players.map(function (player, index) {
-        return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_Player__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_Player__WEBPACK_IMPORTED_MODULE_16__["default"], {
           playerID: index,
           isCurrentPlayer: index === currentPlayer,
           handleTurnEnd: handleTurnEnd,
           data: player,
+          assignTilesToPatternLines: assignTilesToPatternLines,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 252
+            lineNumber: 306
           },
           __self: this
         });
@@ -21630,7 +22066,7 @@ function (_Component) {
   }]);
 
   return Index;
-}(react__WEBPACK_IMPORTED_MODULE_10__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_11__["Component"]);
 
 
 
