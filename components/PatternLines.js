@@ -2,12 +2,14 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'mineral-ui/Button';
 
-export default class FloorLines extends PureComponent {
+export default class PatternLines extends PureComponent {
   static propTypes = {
     lines: PropTypes.arrayOf(
       PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
     ).isRequired,
     tilesToPlace: PropTypes.arrayOf(PropTypes.number).isRequired,
+    assignTilesToPatternLines: PropTypes.func.isRequired,
+    playerID: PropTypes.number.isRequired,
   };
 
   /**
@@ -41,14 +43,21 @@ export default class FloorLines extends PureComponent {
   }
 
   render() {
-    const { lines, tilesToPlace } = this.props;
+    const {
+      lines, tilesToPlace, assignTilesToPatternLines, playerID,
+    } = this.props;
     const { canPlaceTilesInThisRow } = this;
     return (
       <ul>
-        {lines.map(line => (
+        {lines.map((line, index) => (
           <li>
             {canPlaceTilesInThisRow(line, tilesToPlace) && (
-              <Button primary>Place tiles in this row</Button>
+              <Button
+                primary
+                onClick={() => assignTilesToPatternLines(playerID, index, tilesToPlace)}
+              >
+                Place tiles in this row
+              </Button>
             )}
             <ul>
               {line.map(tile => (<li><Button>{tile}</Button></li>))}

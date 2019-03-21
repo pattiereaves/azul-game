@@ -201,12 +201,59 @@ export default class Index extends Component {
     this.setState({ players: updatedPlayers });
   }
 
+  assignTilesToPatternLines = (playerID, lineIndex, tilesToPlace) => {
+    const { players } = this.state;
+    const player = players[playerID];
+    const { patternLines } = player;
+    const line = patternLines[lineIndex];
+
+    const tiles = tilesToPlace;
+    const filledLine = line.map((place) => {
+      if (place === false) {
+        const assignedPlace = tiles.pop();
+        if (Number.isInteger(assignedPlace)) {
+          return assignedPlace;
+        }
+
+        return false;
+      }
+
+      return place;
+    });
+
+    // Update lines.
+    const updatedLines = patternLines.map((patternLine, index) => {
+      if (index === lineIndex) {
+        return filledLine;
+      }
+
+      return patternLine;
+    });
+
+    const updatedPlayers = players.map((oldPlayer, index) => {
+      if (index === playerID) {
+        return {
+          ...oldPlayer,
+          patternLines: updatedLines,
+          floorLine: oldPlayer.floorLine.concat(tiles),
+          tilesToPlace: [],
+        };
+      }
+
+      return oldPlayer;
+    });
+
+    this.setState({ players: updatedPlayers });
+    this.handleTurnEnd(playerID);
+  }
+
   render() {
     const {
       possiblePlayers,
       handlePlayerSelection,
       handleTurnEnd,
       handleTileSelection,
+      assignTilesToPatternLines,
     } = this;
 
     const {
@@ -254,6 +301,7 @@ export default class Index extends Component {
               isCurrentPlayer={index === currentPlayer}
               handleTurnEnd={handleTurnEnd}
               data={player}
+              assignTilesToPatternLines={assignTilesToPatternLines}
             />
           ))}
         </div>

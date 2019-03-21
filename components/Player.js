@@ -7,7 +7,6 @@ import PatternLines from './PatternLines';
 export default class Player extends PureComponent {
   static propTypes = {
     isCurrentPlayer: PropTypes.bool.isRequired,
-    handleTurnEnd: PropTypes.func.isRequired,
     playerID: PropTypes.number.isRequired,
     data: PropTypes.shape({
       tilesToPlace: PropTypes.arrayOf(PropTypes.number).isRequired,
@@ -18,22 +17,14 @@ export default class Player extends PureComponent {
       ).isRequired,
       floorLine: PropTypes.arrayOf(PropTypes.number).isRequired,
     }).isRequired,
+    assignTilesToPatternLines: PropTypes.func.isRequired,
   };
-
-  // if there are tiles to place, show the floor lines.
-  // a button for which pattern line to fill
-  // if there are more tiles than pattern line, push the remaining to the floorLine
-  // need option to send all tiles to the floorline
-  // need to gray out pattern lines that aren't the same tile type
-  // (button to place should only appear for legal moves)
-  // after placing tiles on pattern line, move to next turn.
-  // Create this logic in the index.js file.
 
   render() {
     const {
-      isCurrentPlayer, handleTurnEnd, playerID, data,
+      isCurrentPlayer, playerID, data, assignTilesToPatternLines,
     } = this.props;
-    const { tilesToPlace, patternLines: lines } = data;
+    const { tilesToPlace, patternLines: lines, floorLine } = data;
 
     return (
       <div>
@@ -41,9 +32,21 @@ export default class Player extends PureComponent {
         Player
         {' '}
         {playerID}
-        {isCurrentPlayer && (<Button onClick={() => handleTurnEnd(playerID)}>End turn</Button>)}
         {tilesToPlace.map(tile => <Button>{tile}</Button>)}
-        <PatternLines lines={lines} tilesToPlace={tilesToPlace} />
+        <PatternLines
+          lines={lines}
+          tilesToPlace={tilesToPlace}
+          assignTilesToPatternLines={assignTilesToPatternLines}
+          playerID={playerID}
+        />
+        {floorLine && (
+          <div>
+            <h3>Floor line:</h3>
+            <ul>
+              {floorLine.map(tile => (<Button warning>{tile}</Button>))}
+            </ul>
+          </div>
+        )}
       </div>
     );
   }
