@@ -8,12 +8,9 @@ import FactoryDisplay from '../components/FactoryDisplay'; // eslint-disable-lin
 import Center from '../components/Center'; // eslint-disable-line
 import generateTilebag from '../services/tilebag';
 
-//  @todo shouldn't be able to keep selecting tiles once tiles have been selected.
-//  unset previous selection at every turn change.
 //  Ability to select center tiles like factory displays.
 //  First player to select center tiles gets start player tile.
 //  Add tiles to the wall once every factory display has been used and the cneter is empty.
-
 
 export default class Index extends Component {
   state = {
@@ -177,19 +174,27 @@ export default class Index extends Component {
       currentPlayer,
       centerTiles,
     } = this.state;
+
     const activeDisplay = factoryDisplays[displayID];
+    const displayTiles = activeDisplay || centerTiles;
 
-    // Remove activeDisplay from factory displays.
-    factoryDisplays.splice(displayID, 1);
-    this.setState({ factoryDisplays });
+    if (displayID !== false) {
+      // Remove activeDisplay from factory displays.
+      factoryDisplays.splice(displayID, 1);
+      this.setState({ factoryDisplays });
 
-    // Give remaining tiles to center.
-    const remainingTiles = activeDisplay.filter(tile => tile !== tileSelection);
-    const newCenterTiles = centerTiles.concat(remainingTiles);
-    this.setState({ centerTiles: newCenterTiles });
+      // Give remaining tiles to center.
+      const remainingTiles = activeDisplay.filter(tile => tile !== tileSelection);
+      const newCenterTiles = centerTiles.concat(remainingTiles);
+      this.setState({ centerTiles: newCenterTiles });
+    } else {
+      // Take these tiles out of the center.
+      const newCenterTiles = centerTiles.filter(tile => tile !== tileSelection);
+      this.setState({ centerTiles: newCenterTiles });
+    }
 
     // Get all of selected files from activeDisplay
-    const playersTiles = activeDisplay.filter(tile => tile === tileSelection);
+    const playersTiles = displayTiles.filter(tile => tile === tileSelection);
     const updatedPlayers = players.reduce((acc, player, index) => {
       if (index !== currentPlayer) {
         return [...acc, player];
@@ -308,7 +313,7 @@ export default class Index extends Component {
               />
             );
           })}
-          <Center tiles={centerTiles} />
+          <Center tiles={centerTiles} handleTileSelection={handleTileSelection} />
           {players.map((player, index) => {
             const key = index;
             return (
