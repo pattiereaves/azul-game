@@ -7,6 +7,7 @@ export default class FactoryDisplay extends PureComponent {
     tiles: PropTypes.arrayOf(PropTypes.number).isRequired,
     handleTileSelection: PropTypes.func.isRequired,
     displayID: PropTypes.number.isRequired,
+    showTileSelectionButton: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -17,25 +18,30 @@ export default class FactoryDisplay extends PureComponent {
     this.setState({ selectedTile });
   }
 
-  // @todo create a function in the parent
-  // onclick adds selected tiles to player's mat.
-  // puts unselected tiles into center mat.
-
   render() {
     const { handleSelection } = this;
-    const { tiles, handleTileSelection, displayID } = this.props;
+    const {
+      tiles,
+      handleTileSelection,
+      displayID,
+      showTileSelectionButton,
+    } = this.props;
     const { selectedTile } = this.state;
     return (
       <div>
-        {tiles.map(tile => (
-          <Button
-            onClick={() => handleSelection(tile)}
-            primary={tile === selectedTile}
-          >
-            {tile}
-          </Button>
-        ))}
-        {selectedTile !== false && (
+        {tiles.map((tile, index) => {
+          const key = `${index}-${tile}`;
+          return (
+            <Button
+              onClick={() => handleSelection(tile)}
+              primary={tile === selectedTile}
+              key={key}
+            >
+              {tile}
+            </Button>
+          );
+        })}
+        {showTileSelectionButton && selectedTile !== false && (
           <Button onClick={() => handleTileSelection(displayID, selectedTile)}>
             Select all
             {' '}

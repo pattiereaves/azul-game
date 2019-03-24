@@ -21,9 +21,10 @@ export default class Index extends Component {
     currentPlayer: 0,
     tileBag: generateTilebag(),
     isReadyToPlay: false,
+    isReadyToSelectTiles: true,
     factoryDisplays: [],
     centerTiles: [],
-    players: [], // eslint-disable-line
+    players: [],
   };
 
   possiblePlayers = [
@@ -157,6 +158,7 @@ export default class Index extends Component {
   }
 
   handleTurnEnd = (playerID) => {
+    this.setState({ isReadyToSelectTiles: true });
     const { playerCount } = this.state;
     const nextID = playerID + 1;
     if (nextID < playerCount) {
@@ -205,7 +207,7 @@ export default class Index extends Component {
     }, []);
 
     // Give selected tiles from display to current player.
-    this.setState({ players: updatedPlayers });
+    this.setState({ players: updatedPlayers, isReadyToSelectTiles: false });
   }
 
   assignTilesToPatternLines = (playerID, lineIndex, tilesToPlace) => {
@@ -266,8 +268,8 @@ export default class Index extends Component {
     const {
       playerCount,
       currentPlayer,
-      tileBag, // eslint-disable-line
       isReadyToPlay,
+      isReadyToSelectTiles,
       factoryDisplays,
       centerTiles,
       players,
@@ -294,23 +296,32 @@ export default class Index extends Component {
           </div>
           )}
           {!isReadyToPlay && (<Button primary onClick={this.setUpRound}>Draw tiles</Button>)}
-          {isReadyToPlay && factoryDisplays.map((tiles, index) => (
-            <FactoryDisplay
-              displayID={index}
-              tiles={tiles}
-              handleTileSelection={handleTileSelection}
-            />
-          ))}
+          {isReadyToPlay && factoryDisplays.map((tiles, index) => {
+            const key = `${index}-${tiles.toString()}`;
+            return (
+              <FactoryDisplay
+                displayID={index}
+                handleTileSelection={handleTileSelection}
+                tiles={tiles}
+                showTileSelectionButton={isReadyToSelectTiles}
+                key={key}
+              />
+            );
+          })}
           <Center tiles={centerTiles} />
-          {players.map((player, index) => (
-            <Player
-              playerID={index}
-              isCurrentPlayer={index === currentPlayer}
-              handleTurnEnd={handleTurnEnd}
-              data={player}
-              assignTilesToPatternLines={assignTilesToPatternLines}
-            />
-          ))}
+          {players.map((player, index) => {
+            const key = index;
+            return (
+              <Player
+                assignTilesToPatternLines={assignTilesToPatternLines}
+                data={player}
+                handleTurnEnd={handleTurnEnd}
+                isCurrentPlayer={index === currentPlayer}
+                playerID={index}
+                key={key}
+              />
+            );
+          })}
         </div>
       </ThemeProvider>
     );

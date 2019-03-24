@@ -49,21 +49,27 @@ export default class PatternLines extends PureComponent {
     const { canPlaceTilesInThisRow } = this;
     return (
       <ul>
-        {lines.map((line, index) => (
-          <li>
-            {canPlaceTilesInThisRow(line, tilesToPlace) && (
+        {lines.map((line, index) => {
+          const key = `${index}-${line.toString()}`;
+          return (
+            <li key={key}>
+              {canPlaceTilesInThisRow(line, tilesToPlace) && (
               <Button
                 primary
                 onClick={() => assignTilesToPatternLines(playerID, index, tilesToPlace)}
               >
                 Place tiles in this row
               </Button>
-            )}
-            <ul>
-              {line.map(tile => (<li><Button>{tile}</Button></li>))}
-            </ul>
-          </li>
-        ))}
+              )}
+              <ul>
+                {line.map((tile, tileIndex) => {
+                  const tileKey = tileIndex;
+                  return (<li key={tileKey}><Button>{tile}</Button></li>);
+                })}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
     );
   }
