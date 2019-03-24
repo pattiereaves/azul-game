@@ -6,6 +6,7 @@ export default class Center extends PureComponent {
   static propTypes = {
     tiles: PropTypes.arrayOf(PropTypes.number).isRequired,
     handleTileSelection: PropTypes.func.isRequired,
+    showTileSelectionButton: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -17,7 +18,7 @@ export default class Center extends PureComponent {
   }
 
   render() {
-    const { tiles, handleTileSelection } = this.props;
+    const { tiles, handleTileSelection, showTileSelectionButton } = this.props;
     const { selectedTile } = this.state;
     const { handleSelection } = this;
 
@@ -39,7 +40,7 @@ export default class Center extends PureComponent {
             );
           })}
         </ul>
-        {selectedTile !== false && (
+        {showTileSelectionButton && selectedTile !== false && (
           <Button onClick={() => handleTileSelection(false, selectedTile)}>
             Select all
             {' '}

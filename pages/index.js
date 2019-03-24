@@ -19,6 +19,7 @@ export default class Index extends Component {
     tileBag: generateTilebag(),
     isReadyToPlay: false,
     isReadyToSelectTiles: true,
+    firstPlayerNextRound: 0,
     factoryDisplays: [],
     centerTiles: [],
     players: [],
@@ -61,7 +62,7 @@ export default class Index extends Component {
   setUpRound = () => {
     // Layout factory display thingys
     // Put the tiles on the things.
-    const { playerCount, players } = this.state;
+    const { playerCount, players, firstPlayerNextRound } = this.state;
     const factoryDisplayCount = this.determineFactoryDisplayCount(playerCount);
 
     const factoryDisplays = Array(factoryDisplayCount)
@@ -75,17 +76,12 @@ export default class Index extends Component {
     this.setState({ isReadyToPlay: true, factoryDisplays });
 
     // Update first player.
-    const firstPlayerTileHolder = players
-      .findIndex(({ willBeFirstNextRound }) => (willBeFirstNextRound));
-    const nextFirstPlayerID = firstPlayerTileHolder > -1
-      ? firstPlayerTileHolder : 0;
-    this.setState({ currentPlayer: nextFirstPlayerID });
+    this.setState({ currentPlayer: firstPlayerNextRound, firstPlayerNextRound: false });
 
     // Reset player boards.
     const resetPlayers = players.map(player => ({
       ...player,
       tilesToPlace: [],
-      willBeFirstNextRound: false,
       floorLine: [],
     }));
     this.setState({ players: resetPlayers });
@@ -114,7 +110,6 @@ export default class Index extends Component {
     const players = Array(playerCount).fill({
       tilesToPlace: [],
       score: 0,
-      willBeFirstNextRound: false,
       patternLines: [
         [false],
         [false, false],
@@ -173,6 +168,7 @@ export default class Index extends Component {
       players,
       currentPlayer,
       centerTiles,
+      firstPlayerNextRound,
     } = this.state;
 
     const activeDisplay = factoryDisplays[displayID];
@@ -191,6 +187,11 @@ export default class Index extends Component {
       // Take these tiles out of the center.
       const newCenterTiles = centerTiles.filter(tile => tile !== tileSelection);
       this.setState({ centerTiles: newCenterTiles });
+
+      // Check to see if a start player has been chosen. if not, it is the current player.
+      if (firstPlayerNextRound !== 'false') {
+        this.setState({ firstPlayerNextRound: currentPlayer });
+      }
     }
 
     // Get all of selected files from activeDisplay
@@ -313,7 +314,12 @@ export default class Index extends Component {
               />
             );
           })}
-          <Center tiles={centerTiles} handleTileSelection={handleTileSelection} />
+          {/* @todo the isReadyToSelectTiles option is not consistently working */}
+          <Center
+            showTileSelectionButton={isReadyToSelectTiles}
+            tiles={centerTiles}
+            handleTileSelection={handleTileSelection}
+          />
           {players.map((player, index) => {
             const key = index;
             return (
