@@ -17,14 +17,21 @@ export default class Center extends PureComponent {
     this.setState({ selectedTile });
   }
 
-  render() {
-    const { tiles, handleTileSelection, showTileSelectionButton } = this.props;
+  handleTileSelectionInternally = () => {
+    const { handleTileSelection } = this.props;
     const { selectedTile } = this.state;
-    const { handleSelection } = this;
+    handleTileSelection(false, selectedTile);
+    this.setState({ selectedTile: false });
+  }
+
+  render() {
+    const { tiles, showTileSelectionButton } = this.props;
+    const { selectedTile } = this.state;
+    const { handleSelection, handleTileSelectionInternally } = this;
 
     return (
       <div>
-        This is the center mat.
+        <h2>Center</h2>
         <ul>
           {tiles.map((tile, index) => {
             const key = index;
@@ -41,7 +48,7 @@ export default class Center extends PureComponent {
           })}
         </ul>
         {showTileSelectionButton && selectedTile !== false && (
-          <Button onClick={() => handleTileSelection(false, selectedTile)}>
+          <Button onClick={() => handleTileSelectionInternally(selectedTile)}>
             Select all
             {' '}
             {selectedTile}
