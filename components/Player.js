@@ -2,6 +2,7 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import Button from 'mineral-ui/Button';
+import ButtonGroup from 'mineral-ui/ButtonGroup';
 import PatternLines from './PatternLines';
 import Wall from './Wall';
 
@@ -40,28 +41,39 @@ export default class Player extends PureComponent {
     // Need to be able to assign tiles straight to the floor line
 
     return (
-      <div>
-        {isCurrentPlayer && <IconCheck title="This is the current player" />}
-        Player
-        {' '}
-        {playerID}
-        {tilesToPlace.map(tile => <Button>{tile}</Button>)}
-        <PatternLines
-          lines={lines}
-          tilesToPlace={tilesToPlace}
-          assignTilesToPatternLines={assignTilesToPatternLines}
-          playerID={playerID}
-          readyToAssignToWalls={readyToAssignToWalls}
-        />
-        {floorLine && (
-          <div>
-            <h3>Floor line:</h3>
-            <ul>
-              {floorLine.map(tile => (<Button warning>{tile}</Button>))}
-            </ul>
-          </div>
-        )}
-        <Wall data={wall} />
+      <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
+        <h2 style={{ flex: '1 0 100%' }}>
+          {isCurrentPlayer && <IconCheck title="Current player" />}
+          Player
+          {' '}
+          {playerID}
+        </h2>
+        <div style={{ flex: '1 0 100%' }}>
+          {tilesToPlace.map(tile => <Button>{tile}</Button>)}
+        </div>
+        <div style={{ flex: '0 1 50%', minWidth: '250px' }}>
+          <h3 style={{ flex: '1 0 100%' }}>
+            Tiles to place
+          </h3>
+          <PatternLines
+            lines={lines}
+            tilesToPlace={tilesToPlace}
+            assignTilesToPatternLines={assignTilesToPatternLines}
+            playerID={playerID}
+            readyToAssignToWalls={readyToAssignToWalls}
+          />
+          {floorLine && (
+            <div>
+              <h3>Floor line:</h3>
+              <ButtonGroup>
+                {floorLine.map(tile => (<Button warning>{tile}</Button>))}
+              </ButtonGroup>
+            </div>
+          )}
+        </div>
+        <div style={{ flex: '0 1 50%', minWidth: '250px' }}>
+          <Wall data={wall} />
+        </div>
       </div>
     );
   }

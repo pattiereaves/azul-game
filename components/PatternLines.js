@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'mineral-ui/Button';
+import ButtonGroup from 'mineral-ui/ButtonGroup';
 
 export default class PatternLines extends PureComponent {
   static propTypes = {
@@ -52,21 +53,22 @@ export default class PatternLines extends PureComponent {
         {lines.map((line, index) => {
           const key = `${index}-${line.toString()}`;
           return (
-            <li key={key}>
+            <li key={key} style={{ listStyleType: 'none', display: 'flex', justifyContent: 'flex-end' }}>
               {canPlaceTilesInThisRow(line, tilesToPlace) && (
               <Button
                 primary
                 onClick={() => assignTilesToPatternLines(playerID, index, tilesToPlace)}
+                style={{ flex: '1 0 auto' }}
               >
                 Place tiles in this row
               </Button>
               )}
-              <ul>
+              <ButtonGroup style={{ display: 'flex', justifyContent: 'flex-end', flex: '0 1 auto' }}>
                 {line.map((tile, tileIndex) => {
                   const tileKey = tileIndex;
-                  return (<li key={tileKey}><Button>{tile}</Button></li>);
+                  return (<Button key={tileKey}>{tile}</Button>);
                 })}
-              </ul>
+              </ButtonGroup>
             </li>
           );
         })}

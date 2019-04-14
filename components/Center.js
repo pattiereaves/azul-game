@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'mineral-ui/Button';
+import ButtonGroup from 'mineral-ui/ButtonGroup';
 
 export default class Center extends PureComponent {
   static propTypes = {
@@ -32,21 +33,20 @@ export default class Center extends PureComponent {
     return (
       <div>
         <h2>Center</h2>
-        <ul>
+        <ButtonGroup>
           {tiles.map((tile, index) => {
             const key = index;
             return (
-              <li key={key}>
-                <Button
-                  onClick={() => handleSelection(tile)}
-                  primary={tile === selectedTile}
-                >
-                  {tile}
-                </Button>
-              </li>
+              <Button
+                onClick={() => handleSelection(tile)}
+                primary={tile === selectedTile}
+                key={key}
+              >
+                {tile}
+              </Button>
             );
           })}
-        </ul>
+        </ButtonGroup>
         {showTileSelectionButton && selectedTile !== false && (
           <Button onClick={() => handleTileSelectionInternally(selectedTile)}>
             Select all

@@ -33,7 +33,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "shuffle-array": "^1.0.1"
+    "shuffle-array": "^1.0.1",
+    "styled": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

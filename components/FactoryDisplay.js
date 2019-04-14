@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'mineral-ui/Button';
+import ButtonGroup from 'mineral-ui/ButtonGroup';
 
 export default class FactoryDisplay extends PureComponent {
   static propTypes = {
@@ -29,18 +30,20 @@ export default class FactoryDisplay extends PureComponent {
     const { selectedTile } = this.state;
     return (
       <div>
-        {tiles.map((tile, index) => {
-          const key = `${index}-${tile}`;
-          return (
-            <Button
-              onClick={() => handleSelection(tile)}
-              primary={tile === selectedTile}
-              key={key}
-            >
-              {tile}
-            </Button>
-          );
-        })}
+        <ButtonGroup aria-label={`Factory display ${displayID}`}>
+          {tiles.map((tile, index) => {
+            const key = `${index}-${tile}`;
+            return (
+              <Button
+                onClick={() => handleSelection(tile)}
+                primary={tile === selectedTile}
+                key={key}
+              >
+                {tile}
+              </Button>
+            );
+          })}
+        </ButtonGroup>
         {showTileSelectionButton && selectedTile !== false && (
           <Button onClick={() => handleTileSelection(displayID, selectedTile)}>
             Select all

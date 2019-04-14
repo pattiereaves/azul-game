@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'mineral-ui/Button';
+import ButtonGroup from 'mineral-ui/ButtonGroup';
 
 export default class Wall extends PureComponent {
   static propTypes = {
@@ -21,12 +22,12 @@ export default class Wall extends PureComponent {
         <h3>Wall</h3>
         <ul>
           {data.map(line => (
-            <li>
-              <ul>
+            <li style={{ listStyleType: 'none' }}>
+              <ButtonGroup>
                 {line.map(({ type, isFilled }) => (
-                  <li><Button disabled={!isFilled}>{type}</Button></li>
+                  <Button disabled={!isFilled}>{type}</Button>
                 ))}
-              </ul>
+              </ButtonGroup>
             </li>
           ))}
         </ul>
