@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import Button from 'mineral-ui/Button';
 import PatternLines from './PatternLines';
+import Wall from './Wall';
 
 export default class Player extends PureComponent {
   static propTypes = {
@@ -18,13 +19,23 @@ export default class Player extends PureComponent {
       floorLine: PropTypes.arrayOf(PropTypes.number).isRequired,
     }).isRequired,
     assignTilesToPatternLines: PropTypes.func.isRequired,
+    readyToAssignToWalls: PropTypes.bool.isRequired,
   };
 
   render() {
     const {
-      isCurrentPlayer, playerID, data, assignTilesToPatternLines,
+      isCurrentPlayer,
+      playerID,
+      data,
+      assignTilesToPatternLines,
+      readyToAssignToWalls,
     } = this.props;
-    const { tilesToPlace, patternLines: lines, floorLine } = data;
+    const {
+      tilesToPlace, patternLines: lines, floorLine, wall,
+    } = data;
+
+    // Ready to assign to walls when variable is active and lines are full.
+    // Needs to do it in the patternlines component.
 
     return (
       <div>
@@ -38,7 +49,9 @@ export default class Player extends PureComponent {
           tilesToPlace={tilesToPlace}
           assignTilesToPatternLines={assignTilesToPatternLines}
           playerID={playerID}
+          readyToAssignToWalls={readyToAssignToWalls}
         />
+        <Wall data={wall} />
         {floorLine && (
           <div>
             <h3>Floor line:</h3>

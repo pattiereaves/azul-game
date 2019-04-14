@@ -116,6 +116,43 @@ export default class Index extends Component {
         [false, false, false, false, false],
       ],
       floorLine: [],
+      wall: [
+        [
+          { type: 0, isFilled: false },
+          { type: 1, isFilled: false },
+          { type: 2, isFilled: false },
+          { type: 3, isFilled: false },
+          { type: 4, isFilled: false },
+        ],
+        [
+          { type: 1, isFilled: false },
+          { type: 2, isFilled: false },
+          { type: 3, isFilled: false },
+          { type: 4, isFilled: false },
+          { type: 0, isFilled: false },
+        ],
+        [
+          { type: 2, isFilled: false },
+          { type: 3, isFilled: false },
+          { type: 4, isFilled: false },
+          { type: 0, isFilled: false },
+          { type: 1, isFilled: false },
+        ],
+        [
+          { type: 3, isFilled: false },
+          { type: 4, isFilled: false },
+          { type: 0, isFilled: false },
+          { type: 1, isFilled: false },
+          { type: 2, isFilled: false },
+        ],
+        [
+          { type: 4, isFilled: false },
+          { type: 0, isFilled: false },
+          { type: 1, isFilled: false },
+          { type: 2, isFilled: false },
+          { type: 3, isFilled: false },
+        ],
+      ],
     });
     this.setState({ playerCount, players });
     localStorage('playerCount', playerCount);
@@ -317,6 +354,11 @@ export default class Index extends Component {
             tiles={centerTiles}
             handleTileSelection={handleTileSelection}
           />
+          {/*
+            @todo when the factory displays and the center display are empty, begin tile assignment.
+            should be able to assign tiles directly to the floorline when they
+            cannot be placed.
+          */}
           {players.map((player, index) => {
             const key = index;
             return (
@@ -327,6 +369,7 @@ export default class Index extends Component {
                 isCurrentPlayer={index === currentPlayer}
                 playerID={index}
                 key={key}
+                readyToAssignToWalls={centerTiles.length === 0 && factoryDisplays.length === 0}
               />
             );
           })}
