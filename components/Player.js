@@ -37,6 +37,8 @@ export default class Player extends PureComponent {
     // Ready to assign to walls when variable is active and lines are full.
     // Needs to do it in the patternlines component.
 
+    // Need to be able to assign tiles straight to the floor line
+
     return (
       <div>
         {isCurrentPlayer && <IconCheck title="This is the current player" />}
@@ -51,7 +53,6 @@ export default class Player extends PureComponent {
           playerID={playerID}
           readyToAssignToWalls={readyToAssignToWalls}
         />
-        <Wall data={wall} />
         {floorLine && (
           <div>
             <h3>Floor line:</h3>
@@ -60,6 +61,7 @@ export default class Player extends PureComponent {
             </ul>
           </div>
         )}
+        <Wall data={wall} />
       </div>
     );
   }
